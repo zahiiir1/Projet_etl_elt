@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files
+dataset/*.csv
+dataset/*.xlsx
+dataset/*.json
+dataset/*.parquet
+
+# Power BI temporary files
+*.tmp
+*.bak
+
+# Environment variables
+.env
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
