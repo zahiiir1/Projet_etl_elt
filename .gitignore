@@ -15,6 +15,7 @@ dataset/*.csv
 dataset/*.xlsx
 dataset/*.json
 dataset/*.parquet
+rapport/*.docs
 
 # Power BI temporary files
 *.tmp
@@ -40,3 +41,31 @@ __pycache__/
 .venv/
 venv/
 .ipynb_checkpoints/
+#-------------------------------------------
+# Secrets
+.env
+*.env
+
+# Dataset
+dataset/
+dataset.zip
+*.csv
+*.zip
+
+# Logs
+logs/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
