@@ -24,47 +24,14 @@ Ce projet compare deux approches de traitement de données : ETL et ELT, à part
 - Power BI
 
 ## Structure du projet
+
 ```text
-etl/        scripts ETL Python
-elt/        scripts ELT et dbt
-dataset/    données locales non versionnées
-docs/       documentation
-powerbi/    fichiers ou captures Power BI
-dataset/
-dataset.zip
-logs/
-__pycache__/
-*.pyc
-.env
-.venv/
-venv/
-.ipynb_checkpoints/
-# Datasets
-dataset/
-dataset.zip
-*.zip
-*.csv
-*.xlsx
-*.json
-*.parquet
-
-# Logs
-logs/
-*.log
-
-# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
-env/
-
-# Jupyter
-.ipynb_checkpoints/
-
-# Environment variables
-.env
-
-# OS
-.DS_Store
-Thumbs.db
+Projet_etl_elt/
+│
+├── dataset/              # Données locales non versionnées
+├── scripts/              # Scripts Python pour le pipeline ETL
+├── docs/                 # Documentation du projet
+├── powerbi/              # Fichiers ou captures Power BI
+├── logs/                 # Logs locaux non versionnés
+├── .gitignore            # Fichiers ignorés par Git
+└── README.md             # Présentation du projet
