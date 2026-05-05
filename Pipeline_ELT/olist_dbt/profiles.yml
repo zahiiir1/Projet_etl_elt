@@ -1,0 +1,7 @@
+olist_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: /opt/airflow/Projet_etl_elt/Pipeline_ELT/olist_dbt_airflow.duckdb
+      threads: 4

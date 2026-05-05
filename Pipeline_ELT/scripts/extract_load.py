@@ -15,10 +15,15 @@ import time
 # ─────────────────────────────────────────
 
 # Dossier contenant vos 8 fichiers CSV
-DATA_DIR = r"C:\Users\asus\Desktop\MLAIM\s2\PBI\Projet_etl_elt\Pipeline_ELT\dataset"
+DATA_DIR = os.getenv(
+    "DATA_DIR",
+    r"C:\Users\asus\Desktop\MLAIM\s2\PBI\Projet_etl_elt\Pipeline_ELT\dataset"
+)
 
-# Fichier base de données DuckDB (créé automatiquement)
-DUCKDB_FILE = r"C:\Users\asus\Desktop\MLAIM\s2\PBI\Projet_etl_elt\Pipeline_ELT\olist_raw.duckdb"
+DUCKDB_FILE = os.getenv(
+    "DUCKDB_FILE",
+    r"C:\Users\asus\Desktop\MLAIM\s2\PBI\Projet_etl_elt\Pipeline_ELT\olist_raw.duckdb"
+)
 
 # Les 8 fichiers CSV à charger (sans geolocalisation)
 CSV_FILES = {
