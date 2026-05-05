@@ -28,10 +28,27 @@ Ce projet compare deux approches de traitement de données : ETL et ELT, à part
 ```text
 Projet_etl_elt/
 │
-├── dataset/              # Données locales non versionnées
-├── scripts/              # Scripts Python pour le pipeline ETL
-├── docs/                 # Documentation du projet
-├── powerbi/              # Fichiers ou captures Power BI
-├── logs/                 # Logs locaux non versionnés
-├── .gitignore            # Fichiers ignorés par Git
-└── README.md             # Présentation du projet
+├── Pipeline_ETL/                         # Pipeline ETL avec Python, Pandas, PostgreSQL et Airflow
+│   ├── dags/                             # DAG Airflow pour orchestrer le pipeline ETL
+│   ├── dataset/                          # Données CSV locales non versionnées
+│   ├── logs/                             # Logs locaux non versionnés
+│   └── scripts/                          # Scripts Python du pipeline ETL
+│
+├── Pipeline_ELT/                         # Pipeline ELT avec Python, DuckDB et dbt
+│   ├── dataset/                          # Données CSV locales non versionnées
+│   ├── exports/                          # Exports éventuels des tables finales
+│   ├── logs/                             # Logs locaux non versionnés
+│   ├── olist_dbt/                        # Projet dbt pour les transformations SQL
+│   │   ├── models/
+│   │   │   ├── staging/                  # Vues dbt de nettoyage et standardisation
+│   │   │   └── marts/                    # Tables finales dim/fact pour Power BI
+│   │   ├── dbt_project.yml               # Configuration dbt
+│   │   └── README.md                     # Documentation dbt
+│   ├── scripts/                          # Scripts Python du pipeline ELT
+│   └── olist_raw.duckdb                  # Base DuckDB locale non versionnée
+│
+├── powerbi/                              # Fichiers ou captures Power BI
+├── docs/                                 # Documentation du projet
+├── .env.example                          # Exemple de configuration sans secret
+├── .gitignore                            # Fichiers ignorés par Git
+└── README.md                             # Présentation du projet
