@@ -314,7 +314,7 @@ Ces fichiers sont ignorés car ils peuvent contenir des données locales, des se
 
 ## Auteur
 
-Projet réalisé dans le cadre du mini-projet Power BI / Business Intelligence.
+Projet réalisé dans le cadre du projet Power BI / Business Intelligence.
 
 ```text
 Sujet : ETL vs ELT — Étude comparative avec outils open-source
