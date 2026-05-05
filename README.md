@@ -26,6 +26,13 @@ Ce projet compare deux approches de traitement de données : ETL et ELT, à part
 ### BI
 
 ![Power BI](https://img.shields.io/badge/Power%20BI-Visualization-F2C811?logo=powerbi&logoColor=black)
+## Dépendances principales
+
+![pandas](https://img.shields.io/badge/pandas-DataFrame-150458?logo=pandas&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM%20%26%20SQL-D71F00)
+![python-dotenv](https://img.shields.io/badge/python--dotenv-Environment%20Variables-green)
+![duckdb](https://img.shields.io/badge/duckdb-Embedded%20OLAP-FFF000?logo=duckdb&logoColor=black)
+![dbt-duckdb](https://img.shields.io/badge/dbt--duckdb-dbt%20Adapter-FF694B?logo=dbt&logoColor=white)
 
 ## Structure du projet
 
