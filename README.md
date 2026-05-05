@@ -8,20 +8,6 @@ Ce projet compare deux approches de traitement de données : ETL et ELT, à part
 - Construire un pipeline ELT avec PostgreSQL et dbt
 - Comparer les deux approches selon la performance, la maintenabilité et la simplicité
 - Visualiser les résultats avec Power BI
-
-## Stack technique
-
-### ETL
-- Python
-- Pandas
-- PostgreSQL
-
-### ELT
-- PostgreSQL
-- dbt
-
-### BI
-- Power BI
 ## Stack technique
 
 ### ETL
