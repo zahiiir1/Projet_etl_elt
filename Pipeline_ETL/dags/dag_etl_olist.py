@@ -11,7 +11,7 @@ import os
 # CONFIGURATION GLOBALE
 # ============================================================
 #DAG
-DATA_PATH = "/opt/airflow/dataset"
+DATA_PATH = "/opt/airflow/Projet_etl_elt/Pipeline_ETL/dataset"
 def get_db_url():
     """Build the DB connection URL at task runtime, not at import time."""
     db_user     = os.environ["DB_USER"]
@@ -261,6 +261,24 @@ def task_load(**kwargs):
 
     engine = create_engine(get_db_url())  # URL built at runtime
 
+    # Nettoyage explicite pour éviter les conflits PostgreSQL
+    with engine.begin() as conn:
+        conn.execute(text("""
+            DROP TABLE IF EXISTS fact_order_items CASCADE;
+            DROP TABLE IF EXISTS fact_orders CASCADE;
+            DROP TABLE IF EXISTS dim_customer CASCADE;
+            DROP TABLE IF EXISTS dim_product CASCADE;
+            DROP TABLE IF EXISTS dim_seller CASCADE;
+            DROP TABLE IF EXISTS dim_date CASCADE;
+
+            DROP TYPE IF EXISTS fact_order_items CASCADE;
+            DROP TYPE IF EXISTS fact_orders CASCADE;
+            DROP TYPE IF EXISTS dim_customer CASCADE;
+            DROP TYPE IF EXISTS dim_product CASCADE;
+            DROP TYPE IF EXISTS dim_seller CASCADE;
+            DROP TYPE IF EXISTS dim_date CASCADE;
+        """))
+
     dim_date         = pd.read_parquet("/tmp/etl_dim_date.parquet")
     dim_customer     = pd.read_parquet("/tmp/etl_dim_customer.parquet")
     dim_product      = pd.read_parquet("/tmp/etl_dim_product.parquet")
@@ -275,30 +293,45 @@ def task_load(**kwargs):
     fact_orders.to_sql("fact_orders", engine, if_exists="replace", index=False, chunksize=5000)
     fact_order_items.to_sql("fact_order_items", engine, if_exists="replace", index=False, chunksize=5000)
 
-    with engine.connect() as conn:
+    # Ajout des clés primaires et index
+    with engine.begin() as conn:
         conn.execute(text("""
             ALTER TABLE dim_customer ADD PRIMARY KEY (customer_id);
             ALTER TABLE dim_product  ADD PRIMARY KEY (product_id);
             ALTER TABLE dim_seller   ADD PRIMARY KEY (seller_id);
             ALTER TABLE dim_date     ADD PRIMARY KEY (date_id);
         """))
-        conn.execute(text("""
-            CREATE INDEX IF NOT EXISTS idx_fact_orders_customer ON fact_orders(customer_id);
-            CREATE INDEX IF NOT EXISTS idx_fact_orders_date ON fact_orders(date_id);
-            CREATE INDEX IF NOT EXISTS idx_fact_items_order ON fact_order_items(order_id);
-            CREATE INDEX IF NOT EXISTS idx_fact_items_product ON fact_order_items(product_id);
-            CREATE INDEX IF NOT EXISTS idx_fact_items_seller ON fact_order_items(seller_id);
-        """))
-        conn.commit()
 
-    print(f"[LOAD] Terminé en {round(time.time()-start, 2)}s")
+        conn.execute(text("""
+            CREATE INDEX IF NOT EXISTS idx_fact_orders_customer
+            ON fact_orders(customer_id);
+
+            CREATE INDEX IF NOT EXISTS idx_fact_orders_date
+            ON fact_orders(date_id);
+
+            CREATE INDEX IF NOT EXISTS idx_fact_items_order
+            ON fact_order_items(order_id);
+
+            CREATE INDEX IF NOT EXISTS idx_fact_items_product
+            ON fact_order_items(product_id);
+
+            CREATE INDEX IF NOT EXISTS idx_fact_items_seller
+            ON fact_order_items(seller_id);
+        """))
+
+    print(f"[LOAD] Terminé en {round(time.time() - start, 2)}s")
 
     with engine.connect() as conn:
-        for table in ["dim_date","dim_customer","dim_product",
-                      "dim_seller","fact_orders","fact_order_items"]:
+        for table in [
+            "dim_date",
+            "dim_customer",
+            "dim_product",
+            "dim_seller",
+            "fact_orders",
+            "fact_order_items"
+        ]:
             count = conn.execute(text(f"SELECT COUNT(*) FROM {table}")).scalar()
             print(f"  {table:25s} : {count:,} lignes")
-
 # ============================================================
 # DÉFINITION DU DAG
 # ============================================================
