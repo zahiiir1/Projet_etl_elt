@@ -22,6 +22,24 @@ Ce projet compare deux approches de traitement de données : ETL et ELT, à part
 
 ### BI
 - Power BI
+## Stack technique
+
+### ETL
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?logo=pandas&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)
+![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-Orchestration-017CEE?logo=apacheairflow&logoColor=white)
+
+### ELT
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
+![DuckDB](https://img.shields.io/badge/DuckDB-Analytical%20Database-FFF000?logo=duckdb&logoColor=black)
+![dbt](https://img.shields.io/badge/dbt-Transformations-FF694B?logo=dbt&logoColor=white)
+
+### BI
+
+![Power BI](https://img.shields.io/badge/Power%20BI-Visualization-F2C811?logo=powerbi&logoColor=black)
 
 ## Structure du projet
 
