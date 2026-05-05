@@ -2,6 +2,6 @@ pandas
 sqlalchemy
 psycopg2-binary
 python-dotenv
-apache-airflow
 duckdb
 dbt-duckdb
+apache-airflow

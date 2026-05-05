@@ -33,6 +33,18 @@ Ce projet compare deux approches de traitement de données : ETL et ELT, à part
 ![python-dotenv](https://img.shields.io/badge/python--dotenv-Environment%20Variables-green)
 ![duckdb](https://img.shields.io/badge/duckdb-Embedded%20OLAP-FFF000?logo=duckdb&logoColor=black)
 ![dbt-duckdb](https://img.shields.io/badge/dbt--duckdb-dbt%20Adapter-FF694B?logo=dbt&logoColor=white)
+<<<<<<< HEAD
+=======
+````markdown
+## Installation
+
+Cloner le projet :
+
+```bash
+git clone https://github.com/zahiiir1/Projet_etl_elt.git
+cd Projet_etl_elt
+pip install -r requirements.txt
+>>>>>>> ad5b008 (Add installation instructions and requirements)
 
 ## Structure du projet
 
