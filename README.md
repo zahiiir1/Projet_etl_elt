@@ -120,9 +120,7 @@ Extract → Transform → Load
 
 Dans cette approche, les données sont extraites depuis les fichiers CSV, transformées avec Python/Pandas, puis chargées dans PostgreSQL.
 
-<p align="center">
-  <img src="img/ETLAIRFLOW.png" alt="Pipeline ETL Airflow" width="900">
-</p>
+
 
 Flux du pipeline ETL :
 
@@ -167,9 +165,7 @@ Extract → Load → Transform
 
 Dans cette approche, les données sont d’abord chargées brutes dans DuckDB, puis transformées avec dbt en SQL.
 
-<p align="center">
-  <img src="img/airflowELT.png" alt="Pipeline ELT Airflow" width="900">
-</p>
+
 
 Flux du pipeline ELT :
 
@@ -263,7 +259,9 @@ python Pipeline_ETL/scripts/pipeline_etl.py
 ```
 
 Pour l’orchestration Airflow, placer le DAG dans le dossier Airflow approprié puis lancer Airflow.
-
+<p align="center">
+  <img src="img/airflowELT.png" alt="Pipeline ELT Airflow" width="900">
+</p>
 ---
 
 ## Exécution du pipeline ELT
@@ -281,7 +279,10 @@ cd Pipeline_ELT/olist_dbt
 dbt debug
 dbt run --full-refresh
 ```
-
+Pour l’orchestration Airflow
+<p align="center">
+  <img src="img/ETLAIRFLOW.png" alt="Pipeline ETL Airflow" width="900">
+</p>
 Résultat attendu :
 
 ```text
