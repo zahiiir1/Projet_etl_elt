@@ -313,17 +313,10 @@ dim_date
 fact_orders
 fact_order_items
 ```
-
-Relations recommandées :
-
-```text
-dim_customer.customer_id  → fact_orders.customer_id
-dim_date.date_id          → fact_orders.date_id
-fact_orders.order_id      → fact_order_items.order_id
-dim_product.product_id    → fact_order_items.product_id
-dim_seller.seller_id      → fact_order_items.seller_id
+<p align="center">
+  <img src="img/PBI.png" alt="Pipeline ETL Airflow" width="900">
+</p>
 ```
-
 ---
 
 ## Comparaison ETL vs ELT
