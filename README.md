@@ -97,7 +97,7 @@ Extract → Transform → Load
 ```
 
 Dans cette approche, les données sont extraites depuis les fichiers CSV, transformées avec Python/Pandas, puis chargées dans PostgreSQL.
-![Pipeline ETL Airflow](C:\Users\asus\Pictures\ETLAIRFLOW.png)
+![Pipeline ETL Airflow](img/ETLAIRFLOW.png)
 
 Flux du pipeline ETL :
 
@@ -139,7 +139,7 @@ Extract → Load → Transform
 ```
 
 Dans cette approche, les données sont d’abord chargées brutes dans DuckDB, puis transformées avec dbt en SQL.
-![Pipeline ELT Airflow](C:\Users\asus\Pictures\airflowELT.png)
+![Pipeline ELT Airflow](img/airflowELT.png)
 
 Flux du pipeline ELT :
 
