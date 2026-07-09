@@ -260,7 +260,7 @@ python Pipeline_ETL/scripts/pipeline_etl.py
 
 Pour l’orchestration Airflow, placer le DAG dans le dossier Airflow approprié puis lancer Airflow.
 <p align="center">
-  <img src="img/airflowELT.png" alt="Pipeline ELT Airflow" width="900">
+  <img src="docs/images/etl-airflow.png" alt="Airflow DAG execution for ETL pipeline" width="900">
 </p>
 ---
 
@@ -281,7 +281,7 @@ dbt run --full-refresh
 ```
 Pour l’orchestration Airflow
 <p align="center">
-  <img src="img/ETLAIRFLOW.png" alt="Pipeline ETL Airflow" width="900">
+  <img src="docs/images/elt-airflow.png" alt="Airflow DAG execution for ELT pipeline" width="900">
 </p>
 Résultat attendu :
 
@@ -314,7 +314,7 @@ fact_orders
 fact_order_items
 ```
 <p align="center">
-  <img src="img/PBI.png" alt="Pipeline ETL Airflow" width="900">
+  <img src="docs/images/PBI.png" alt="Power BI dashboard" width="900">
 </p>
 ```
 ---
